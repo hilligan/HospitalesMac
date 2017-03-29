@@ -1,0 +1,4881 @@
+/*
+Theme Name: Hospitales Mac 
+Template Theme URI: https://localhost/hospitalesmac 
+Author: Hilario Bautista Miguel
+Description: Tema para Hospitlaes Mac
+Version: 1.0 
+*/
+
+
+body{
+
+}
+
+#menu-social li a::before {
+  content: "\f135";
+  display: inline-block;
+  padding: 0 5px;
+  font-family: FontAwesome;
+  font-size: 20px;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#menu-social li a[href*="facebook.com"]::before {
+  content: "\f09a";
+}
+#menu-social li a[href*="twitter.com"]::before {
+  content: "\f099";
+}
+#menu-social li a[href*="dribbble.com"]::before {
+  content: "\f17d";
+}
+#menu-social li a[href*="plus.google.com"]::before {
+  content: "\f0d5";
+}
+
+/*PRELOADER*/
+#hola{
+  width: 100vw;
+  height: 110vh;
+  background-color: white;
+  position: fixed;
+  z-index:1000;
+
+}
+#preloader {
+	position:relative;
+  width: 80px;
+  height: 80px;
+  top: 40%;
+  margin: 0 auto;
+}
+#preloader span {
+	position:absolute;
+	border: 8px solid #98c028;
+	/*border-top: 8px solid transparent;*/
+	border-radius:999px;
+}
+
+#preloader span:nth-child(1){
+	width:80px;
+	height:80px;
+	-webkit-animation: spin-1 2s infinite linear;
+	        animation: spin-1 2s infinite linear;
+}
+#preloader span:nth-child(2){
+	top: 20px;
+	left: 20px;
+	width:40px;
+	height:40px;
+	-webkit-animation: spin-2 1s infinite linear;
+	        animation: spin-2 1s infinite linear;
+}
+@-webkit-keyframes spin-1 {
+	0% {-webkit-transform: rotate(360deg);transform: rotate(360deg); opacity: 1;}
+	50% {-webkit-transform: rotate(180deg);transform: rotate(180deg); opacity: 0.5;}
+	100% {-webkit-transform: rotate(0deg);transform: rotate(0deg); opacity: 1;}
+}
+@keyframes spin-1 {
+	0% {-webkit-transform: rotate(360deg);transform: rotate(360deg); opacity: 1;}
+	50% {-webkit-transform: rotate(180deg);transform: rotate(180deg); opacity: 0.5;}
+	100% {-webkit-transform: rotate(0deg);transform: rotate(0deg); opacity: 1;}
+}
+@-webkit-keyframes spin-2 {
+	0% {-webkit-transform: rotate(0deg);transform: rotate(0deg); opacity: 0.5;}
+	50% {-webkit-transform: rotate(180deg);transform: rotate(180deg); opacity: 1;}
+	100% {-webkit-transform: rotate(360deg);transform: rotate(360deg); opacity: 0.5;}
+}
+@keyframes spin-2 {
+	0% {-webkit-transform: rotate(0deg);transform: rotate(0deg); opacity: 0.5;}
+	50% {-webkit-transform: rotate(180deg);transform: rotate(180deg); opacity: 1;}
+	100% {-webkit-transform: rotate(360deg);transform: rotate(360deg); opacity: 0.5;}
+}
+
+.icono-modal img{
+  width: 90px;
+  height: 100px;
+}
+/* Ripple Out */
+@-webkit-keyframes hvr-ripple-out {
+  100% {
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+    opacity: 0;
+  }
+}
+@keyframes hvr-ripple-out {
+  100% {
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+    opacity: 0;
+  }
+}
+/*menu*/
+/* Sweep To Bottom */
+.hvr-sweep-to-bottom {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-bottom:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #95bd28;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-bottom:hover, .hvr-sweep-to-bottom:focus, .hvr-sweep-to-bottom:active {
+  color: white !important;
+}
+.hvr-sweep-to-bottom:hover:before, .hvr-sweep-to-bottom:focus:before, .hvr-sweep-to-bottom:active:before {
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
+/* Float Shadow */
+.hvr-float-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-float-shadow:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 80%);
+  /* W3C */
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+.hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  /* move the element up by 5px */
+}
+.hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+  /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+}
+/*Boton-2*/
+/* Shutter In Horizontal */
+.hvr-shutter-in-horizontal {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  background: #a5d71a;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-shutter-in-horizontal:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #98c028;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-shutter-in-horizontal:hover, .hvr-shutter-in-horizontal:focus, .hvr-shutter-in-horizontal:active {
+  color: white;
+}
+.hvr-shutter-in-horizontal:hover:before, .hvr-shutter-in-horizontal:focus:before, .hvr-shutter-in-horizontal:active:before {
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+}
+
+/*HOVERS*/
+
+/* Shutter Out Vertical */
+.hvr-shutter-out-vertical {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  background: #e1e1e1;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-shutter-out-vertical:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #03bbb7;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-shutter-out-vertical:hover, .hvr-shutter-out-vertical:focus, .hvr-shutter-out-vertical:active {
+  color: white;
+}
+.hvr-shutter-out-vertical:hover:before, .hvr-shutter-out-vertical:focus:before, .hvr-shutter-out-vertical:active:before {
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
+}
+/*HOVER*/
+/*HELPERS*/
+.shadow-footer{
+  position: relative;
+  -webkit-box-shadow: 0px -11px 22px -10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -11px 22px -10px rgba(0,0,0,0.75);
+  box-shadow: 0px -11px 22px -10px rgba(0,0,0,0.75);
+  z-index: 100;
+}
+.bottom-gine{
+  margin-bottom: 100px;
+}
+.content-shadow{
+  background: white;
+  position: relative;
+  z-index: 11;
+}
+.border-shadow {
+	background: transparent;
+	width: 80%;
+	height: 1px;
+	left: 10%;
+	position: relative;
+	z-index:10;
+}
+.border-shadow:after, .border-shadow:before {
+	content: '';
+	position: absolute;
+	background: #171c24;
+	height: 10%;
+	width: 49.1%;
+	left: 10px;
+	top: -2px;
+	-webkit-transform: rotate(.6deg);
+	-ms-transform: rotate(.6deg);
+	-o-transform: rotate(.6deg);
+	transform: rotate(.6deg);
+	-webkit-box-shadow: 0 0 9px 4px #171c24;
+	box-shadow: 0 0 9px 4px #171c24;
+}
+.border-shadow:before {
+	right: 10px;
+	left: auto;
+	-webkit-transform: rotate(-.6deg);
+	-ms-transform: rotate(-.6deg);
+	-o-transform: rotate(-.6deg);
+	transform: rotate(-.6deg);
+}
+.nomargin{
+  margin: 0px !important;
+  padding: 0px !important;
+}
+.top-100{
+  padding-top: 100px !important;
+}
+.top-50{
+  padding-top: 50px !important;
+}
+.top-10{
+  margin-top: 10px !important;
+}
+.top-20{
+  padding-top: 20px !important;
+}
+.top-30{
+  padding-top: 30px !important;
+}
+.top-60{
+  padding-top: 60px !important;
+}
+.bottom-30{
+  margin-bottom: 30px !important;
+}
+
+.padre-80{
+  padding: 0 80px;
+}
+
+.abajo-50{
+  padding-bottom: 50px !important:
+}
+
+.top-iconos{
+  padding-top: 50px;
+}
+#materialbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 1000;
+  will-change: opacity;
+}
+.line-0{
+  line-height: 0;
+}
+.left-0{
+  padding-left: 0px !important;
+}
+/*HELPERS*/
+/*slider*/
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: 0px;
+}
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+.gallery-top {
+  height: 80%;
+  width: 100%;
+}
+.gallery-thumbs {
+  /*height: 20%;*/
+  box-sizing: border-box;
+  /*padding: 10px 0;*/
+  cursor: pointer;
+}
+.gallery-thumbs .swiper-slide {
+  height: 100%;
+  opacity: 0.85;
+  border-top: 2px solid #808080;
+  /*border-left: 1px solid #808080;*/
+  /*border-right: 1px solid #808080;*/
+  border-bottom: 10px solid #497731;
+}
+.gallery-thumbs .swiper-slide-active {
+  opacity: 1;
+  border-bottom: 10px solid #a7c834;
+}
+.titulo-cardiologia{
+  color: #626262;
+  font-size: 1.5em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  padding: 50px 0 !important;
+  text-transform: capitalize;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
+}
+.content-seguros{
+  padding: 30px 0 50px !important;
+  border-top:1px solid #dedede !important;
+  border-bottom:1px solid #dedede !important;
+  border-left:.5px solid #dedede !important;
+  margin-right: 0px !important;
+}
+#slider-next{
+  float: right;
+  font-size: 70px;
+  margin-right: -40px;
+  margin-top: -7.5% !important;
+}
+#slider-next i{
+  color: #80970a;
+}
+#slider-prev i{
+  color: #80970a;
+}
+#slider-prev{
+  color: #80970a;
+  float: left;
+  font-size: 70px;
+  margin-left: -40px;
+  margin-top: -7.5% !important;
+}
+.content-seguros img{
+  height: 50px;
+  margin: auto;
+}
+.titulo-seguros{
+  color: #4f4f4f;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+/*MENU*/
+
+.logo-mac img{
+  width: 150px;
+}
+.logo-ambulancia img{
+  position:absolute;
+  width:180px;
+  z-index:100;
+}
+.side-nav a {
+  color:#98c028;
+  display: block;
+  font-size: 1em;
+  font-weight: 500;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 32px;
+}
+nav {
+  background-color:white;
+  color: #98c028;
+  height: 150px;
+  line-height: 56px;
+  width: 100%;
+}
+nav ul a {
+  transition: background-color .3s;
+  font-size: 1rem;
+  color: #97c21f;
+  display: block;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+.logo-slider img{
+  margin: 50px 0 30px;
+  margin-left: 20% !important;
+  width:250px;
+}
+
+.menu-mac{
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.75);
+  position: relative;
+  z-index: 100;
+}
+.menu-mac-2 ul li span::before {
+    background-color: #00aca8;
+    color: #00aca8;
+    content: '';
+    font-family: 1px;
+    display: inline-block;
+    height: 7px;
+    transform: rotate(45deg);
+    margin-top: -2px;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 7px;
+}
+
+.menu-mac-2 ul li a::before {
+    background-color: #00aca8;
+    color: #00aca8;
+    content: '';
+    font-family: 1px;
+    display: inline-block;
+    height: 7px;
+    transform: rotate(45deg);
+    margin-top: -2px;
+    margin-right: 10px;
+    vertical-align: middle;
+    width: 7px;
+}
+
+.menu-mac-2 ul li i{
+  color: #00aca8;
+  font-size: 25px;
+  margin: 0 10px;
+}
+.menu-mac-1{
+  border-bottom: 2px solid #98c028;
+}
+.menu-mac-1 ul li{
+  border-right: 1px solid #98c028;
+  color: #98c028;
+  display: inline-block;
+  font-size: .9em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  margin: 10px 0 !important;
+  padding: 1em 2em;
+  text-transform: uppercase;
+}
+
+.menu-mac-1 ul li a{
+  color: #98c028;
+}
+
+.menu-mac-1 img{
+  width: 20px;
+  margin: 0 5px;
+  vertical-align: sub;
+}
+
+.menu-mac-2 ul li{
+  display: inline-block;
+  color: #98c028;
+  font-size: .9em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1em 1.5em;
+}
+
+.menu-mac-2 ul li a{
+  color: #98c028;
+}
+
+.menu-footer ul li{
+  display: inline-block;
+}
+/*HOME*/
+
+.bg-slider{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/slider/slider-1.jpg) center center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.bg-slider2{
+  position: absolute;
+  z-index: 10;
+  top: 0;
+}
+
+.pleca-slider{
+  background: rgba(152, 192, 40, 0.7);
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 2em;
+  font-weight: 300;
+  margin-top: 50%;
+  padding: 5px 0;
+}
+.pleca-slider strong{
+  font-family: 'Muli', sans-serif;
+  font-size: .9em;
+  font-weight: 700;
+}
+
+.texto-slider{
+  padding-left: 20% !important;
+}
+.texto-slider {
+  color:#808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.texto-slider strong{
+  color:#808080;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.texto-slider2{
+  padding-left: 20%;
+}
+
+.texto-slider2 p{
+  color:#808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.texto-slider2 strong{
+  color:#98c028;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.titulo-mac{
+  color: #00aca8;
+  font-family: 'Muli', sans-serif;
+  font-size: 3em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.titulo-mac strong{
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.icono-modal{
+  text-align: right !important;
+}
+/*.iconos-conoce img{
+  width: 100%;
+}*/
+
+.texto-mac{
+  color: #303030;
+  font-size: 1.2em;
+  font-weight: 700;;
+}
+
+.estados ul li {
+  color: #00aca8;
+  display: inline-block;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0 .8em;
+}
+
+.texto-mac2{
+  color: #808080;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 600;
+}
+
+.texto-mac2 strong{
+  color: #303030;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+
+.seguros{
+  color: #303030;
+  font-size: 3em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+.abc{
+  color: #808080;
+  font-size: 1.3em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
+.boton-mac2{
+  background: #a5d71a;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 0 !important;
+  margin-left: 50%;
+  width: 50%;
+}
+.aseguradora{
+  border-left: 4px solid #98c028;
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding-left: 10px !important;
+}
+.aseguradora span{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.aseguradora strong{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+.titulo-especialidades{
+  color: #808080;
+  font-size: 3em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+.bg-info{
+  background: #f6f6f6;
+}
+.info-especialidades{
+  color: #303030;
+  font-size: 1.2em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  line-height: 2;
+}
+.info-especialidades strong{
+  color: #5d5d5d;
+  font-size: 2.3em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+.mama{
+  color: #313131;
+  font-size: 3.5em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.mama strong{
+  color: #98c028;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.soy-bebe{
+  color: #313131;
+  font-size: 1.7em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 500;
+}
+.soy-bebe strong{
+  color: #313131;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+.bg-hospitales{
+  background: #f6f6f6;
+  padding: 50px 0 !important;
+}
+.footer-menu strong{
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+.footer-menu {
+  color: #303030;
+  display: inline-block;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 0 2em;
+}
+.footer-menu a{
+  color: #303030;
+}
+.footer-menu i{
+  color: #00aca8;
+  font-size: 8px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.footer-menu2 strong{
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+.footer-menu2{
+  color: #303030;
+  display: inline-block;
+  font-family: 'Muli', sans-serif;
+  font-size: .9em;
+  font-weight: 800;
+  padding: 1em 2em;
+}
+.footer-menu2 a{
+  color: #303030;
+}
+.footer-menu2 span{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: .75em;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+}
+.sociales-footer{
+  background: #00aca8;
+  color: white;
+  margin-top: 10px !important;
+}
+.sociales-footer i{
+  color: white;
+  font-size: 20px;
+  margin: 0 10px;
+}
+.correo{
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  text-align: center;
+}
+/*Hover botones bebe*/
+/* Grow Shadow */
+.hvr-grow-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/* Box Shadow Outset */
+.hvr-box-shadow-outset {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+}
+.hvr-box-shadow-outset:hover, .hvr-box-shadow-outset:focus, .hvr-box-shadow-outset:active {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Box Shadow Inset */
+.hvr-box-shadow-inset {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.6), 0 0 1px transparent;
+  /* Hack to improve aliasing on mobile/tablet devices */
+}
+.hvr-box-shadow-inset:hover, .hvr-box-shadow-inset:focus, .hvr-box-shadow-inset:active {
+  box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.6), 0 0 1px transparent;
+  /* Hack to improve aliasing on mobile/tablet devices */
+}
+/*slider hospitales*/
+.content-slide{
+  padding: 50px 0!important;
+  /*border-bottom: 5px solid #00aca8; */
+}
+.contente-marcas{
+  padding: 0 50px !important;
+}
+.border-slider{
+  border-left: 10px solid #98c028;
+  padding-left: 10px;
+}
+.hospital-slider{
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.2em;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+.telefono-hospital{
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.4em;
+  font-weight: 400;
+}
+#numeros{
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.telefono-hospital strong{
+  font-weight: 700;
+}
+.direccion-slider{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/*slider hospitales*/
+.mapa2{
+  height: 700px;
+}
+.hospital-mapa{
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  text-align:right;
+  bottom: 0;
+}
+.copy-footer{
+  background: #00aca8;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+}
+.copy-footer strong{
+  background: #00aca8;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+/*CHECK-UP*/
+.bg-check{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/home/check.jpg) no-repeat center center;
+  background-size: cover;
+  background-attachment:scroll;
+  height:400px;
+}
+
+.check-ups{
+  color: white;
+  font-size: 1.7em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 400;
+}
+.check-ups strong{
+  color: white;
+  font-size: 1.7em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 600;
+}
+.boton-mac3{
+  border: 1px solid white;
+  color: white;
+  font-size: .8em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  padding: 15px !important;
+}
+.confia{
+  color: #3a6625;
+  font-size: 2.3em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  line-height: 1.1;
+}
+.confia strong{
+  color: #98c028;
+  font-size: 1.2em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.boton-mac4{
+  background: #a5d71a;
+  color: white;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  margin-left: 30%;
+  padding: 10px 0;
+  width: 40%;
+
+}
+
+.line-mac{
+  border-bottom:4px solid #98c028;
+  padding-top: 60px !important;
+}
+
+.botonera{
+  background: #f6f6f6;
+  padding: 50px 0 !important;
+  position: relative;
+  z-index: 11;
+}
+
+.boton-mac{
+  background: #00aca8;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  width: 40%;
+  margin-left: 30%;
+  padding: 10px 0 !important;
+}
+
+.titulo-contacto{
+  color:#98c028;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-top: 10% !important;
+}
+
+.enviar-contacto{
+  background: #98c028;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  height: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+/*FORMULARIO*/
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search] {
+  background-color:transparent;
+  border:1px solid #00aca8;
+  border-radius: 0;
+  outline: none;
+  height: 3rem;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+  padding: 0;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: all 0.3s;
+  padding-left: 5px;
+}
+.input-field label {
+  color: #9e9e9e;
+  position: absolute;
+  top: 0.7rem;
+  font-size: 1rem;
+  cursor: text;
+  transition: .2s ease-out;
+  padding-left: 10px;
+}
+textarea.materialize-textarea {
+  background-color: transparent;
+  border:1px solid #00aca8;
+  border-radius: 0;
+  outline: none;
+  height: 5rem;
+  width: 100%;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+  padding: 0;
+  padding-left: 5px;
+  box-shadow: none;
+  box-sizing: content-box;
+  transition: all 0.3s;
+}
+/*EXPERTOS*/
+
+.bg-confia{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/home/confia.jpg) no-repeat center center;
+  background-size: cover;
+  height: 500px;
+}
+
+.slider{
+  width:100%;
+}
+.slider img{
+  width: 100%;
+}
+
+/*AGUASCALIENTES*/
+
+/*MENU*/
+.directorio{
+  background: white;
+  border: 1px solid #98c028;
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 0 !important;
+  margin-left: 10% !important;
+  width: 90%;
+}
+
+.sociales-hospitales{
+  text-align: right;
+}
+
+.sociales-hospitales i{
+  color: #808080;
+  font-size: 25px;
+  text-align: right;
+  padding: 10px 1.5em;
+}
+.sub-menu strong{
+  color: #303030;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.3em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.sub-menu{
+  color: #5a5c5d;
+  font-size: .9em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+.sub-menu a{
+  color: #5a5c5d;
+}
+.menu-mac-3 ul li{
+  background: #98c028;
+  color: white;
+  display: inline-block;
+  padding: .5em 3em;
+  color: white;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.menu-mac-3 ul li a{
+  color: white;
+}
+
+.menu-mac-3{
+  background: #98c028;
+  color: white;
+}
+
+.menu-mac-4 ul li{
+  background: #00aca8;
+  color: white;
+  display: inline-block;
+  padding: .5em 3em;
+  color: white;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.menu-mac-4 ul li a{
+  color: white;
+}
+.menu-mac-4{
+  background: #00aca8;
+  color: white;
+}
+
+.logo-footer{
+  color: #98c028;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.lista-footer{
+  color: #303030;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.lista-footer span{
+  border-bottom: 3px solid #98c028;
+}
+.lista-footer ul li{
+  color: #808080;
+  font-size: .8em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 400;
+  padding: 5px 0 !important;
+  letter-spacing: 1px;
+  text-transform: none;
+}
+.lista-footer ul li i{
+  color: #4f4f4f;
+  font-weight: 800;
+}
+
+.lista-footer ul li a{
+  color: #808080;
+}
+
+.footer-sociales img{
+  margin: 0 5px 20px;
+}
+.pleca-direccion{
+  background:#98c028;
+  margin-top: -50px !important;
+}
+.direccion-footer{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 600
+}
+.telefono-footer{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.2em;
+  font-weight: 400;
+}
+.telefono-footer strong{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700 !important;
+}
+.correo-footer{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  margin-top: 25px;
+}
+.correo-footer strong{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700 !important;
+}
+.bg-aguascalientes{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/aguascalientes/slider-1.png);
+  background-size: cover;
+  height: 700px;
+  padding-top: 100px !important;
+  background-position: center center;
+}
+.titulo-aguascalientes{
+  color: #98c028;
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.5em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.subtitulo-aguascalientes{
+  color:#303030;
+  font-family: 'Roboto Slab', serif;
+  font-size: 2em;
+  font-weight: 400;
+}
+.subtitulo-aguascalientes strong{
+  color:#303030;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+.subtitulo-aguascalientes2{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 1.1;
+}
+.logo-bernadette{
+  text-align: right;
+}
+.logo-bernadette img{
+  margin-bottom: 20px;
+  text-align: right;
+  width: 450px;
+}
+.subtitulo-aguascalientes2 strong{
+  color:#808080;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.hospital-aguascalientes{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+7,ededed+7,ededed+7 */
+  background: rgb(255,255,255); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(255,255,255,1) 7%, rgba(237,237,237,1) 7%, rgba(237,237,237,1) 7%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 7%,rgba(237,237,237,1) 7%,rgba(237,237,237,1) 7%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(255,255,255,1) 7%,rgba(237,237,237,1) 7%,rgba(237,237,237,1) 7%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+}
+.especialista-aguascalientes{
+  background: #98c028;
+  padding: 20px !important;
+}
+.slider-aguascalientes{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+33,98c028+33,98c028+33 */
+  background: rgb(255,255,255); /* Old browsers */
+  background: -moz-linear-gradient(left,  rgba(255,255,255,1) 40%, rgba(152,192,40,1) 20%, rgba(152,192,40,1) 20%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 40%,rgba(152,192,40,1) 20%,rgba(152,192,40,1) 20%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  rgba(255,255,255,1) 40%,rgba(152,192,40,1) 20%,rgba(152,192,40,1) 20%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#98c028',GradientType=1 ); /* IE6-9 */
+  padding-top: 50px !important;
+}
+
+.slider-aguascalientes2{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+33,98c028+33,98c028+33 */
+  background: rgb(255,255,255); /* Old browsers */
+  background: -moz-linear-gradient(left,  rgba(255,255,255,1) 33%, rgba(152,192,40,1) 33%, rgba(152,192,40,1) 33%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 33%,rgba(152,192,40,1) 33%,rgba(152,192,40,1) 33%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right,  rgba(255,255,255,1) 33%,rgba(152,192,40,1) 33%,rgba(152,192,40,1) 33%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#98c028',GradientType=1 ); /* IE6-9 */
+  padding-top: 50px !important;
+}
+
+/*GALERY*/
+.materialboxed {
+  cursor: pointer !important;
+  width: 100%;
+}
+.hover-galery{
+  color: white;
+  margin-left: -10px !important;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: absolute;
+}
+.hover-galery p{
+  margin-top: 25%;
+}
+.material-placeholder{
+  background: #98c028;
+}
+/*GALERY*/
+.bienvenidos{
+  color: #303030;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.8em;
+  font-weight: 300;
+}
+.bienvenidos span{
+  color: #303030;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+.bienvenidos strong{
+  border-bottom: 3px solid #00aca8;
+  color: #303030;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.1em;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+.informacion-hospital{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  padding-top: 10px !important;
+}
+.informacion-hospital strong{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: .9em;
+  font-weight: 800;
+}
+.informacion-hospital span{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: .9em;
+  font-weight: 700;
+}
+.iconos-servicios{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+}
+.iconos-servicios span{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: .9em;
+  font-weight: 800;
+  -webkit-transition: all 200ms cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -moz-transition: all 200ms cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -o-transition: all 200ms cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  transition: all 200ms cubic-bezier(0.500, 0.250, 0.500, 0.750); /* custom */
+  -webkit-transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -moz-transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -o-transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750); /* custom */
+}
+.iconos-servicios span:hover{
+  color: #98c028;
+  text-shadow: 0px .5px 1px rgba(0, 0, 0, 1);
+  letter-spacing: .3px;
+}
+.iconos-servicios strong{
+  color: #303030;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.iconos-servicios img{
+  margin-top: 20px;
+  width: 100%;
+}
+.pocas-palabras{
+  color: #303030;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.3em;
+  font-weight: 400;
+}
+.pocas-palabras strong{
+  color: #303030;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+.icono-palabras{
+  margin-top: 40px;
+}
+.areas{
+  color: #808080;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+.areas ul li{
+  padding: 10px 0;
+}
+.areas i{
+  color: #00aca8;
+}
+.boton-1{
+  background: #98c028;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  max-width: 40%;
+  margin: 30px 0;
+  margin-left: 30%;
+  padding: 15px 0;
+  text-transform: uppercase;
+}
+.boton-2{
+  background: #00aca8;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  max-width: 40%;
+  padding: 15px 0;
+  margin: 30px 0;
+  margin-left: 30%;
+  text-transform: uppercase;
+}
+.marco-palabras{
+  background:white;
+  border:solid 10px #bcd673;
+  height:600px;
+}
+
+.boton-select{
+  color: #808080;
+  cursor: pointer;
+  border: 2px solid #808080;
+  padding: 15px 0;
+  -webkit-transition: all 300ms cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -moz-transition: all 300ms cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -o-transition: all 300ms cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  transition: all 300ms cubic-bezier(0.500, 0.250, 0.500, 0.750); /* custom */
+  -webkit-transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -moz-transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -o-transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750); /* custom */
+}
+.boton-select:hover{
+  background: #98c028;
+  border: 2px solid #98c028;
+  color: white;
+}
+.boton-select2{
+  color: #808080;
+  cursor: pointer;
+  border: 2px solid #808080;
+  padding: 15px 0;
+  -webkit-transition: all 300ms cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -moz-transition: all 300ms cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -o-transition: all 300ms cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  transition: all 300ms cubic-bezier(0.500, 0.250, 0.500, 0.750); /* custom */
+  -webkit-transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -moz-transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  -o-transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750);
+  transition-timing-function: cubic-bezier(0.500, 0.250, 0.500, 0.750); /* custom */
+  width: 15%;
+  margin: 0 auto;
+  padding: 0px;
+}
+.boton-select2:hover{
+  background: #98c028;
+  border: 2px solid #98c028;
+  color: white;
+}
+
+.collapsible {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  margin: 0;
+}
+.collapsible-body {
+   border-bottom: none;
+}
+.collapsible-body p {
+  padding: 0;
+}
+/*CELAYA*/
+.bg-celaya{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/celaya/bg-celaya.jpg) center center;
+  background-size: cover;
+  height: 100%;
+  padding: 100px 0 !important;
+}
+.slider-blog{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.slider-blog strong{
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.2em;
+  font-weight: 600 ;
+  text-transform: uppercase;
+}
+.comentarios{
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  padding-left: 5% !important;
+  padding-top: 20px !important;
+}
+.comentarios i{
+  color: #808080;
+  margin-right: 5px;
+}
+/*GUADALAJARA*/
+
+.bg-guadalajara{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/guadalajara/bg-guadalajara.jpg);
+  background-size: cover;
+  height: 100%;
+  padding: 100px 0 !important;
+}
+
+/*IRAPUATO*/
+
+.bg-irapuato{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/irapuato/bg-irapuato.jpg);
+  background-size: cover;
+  height: 100%;
+  padding: 100px 0 !important;
+  }
+
+.bg-san-miguel{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/san-miguel/san-miguel.jpg);
+  background-size: cover;
+  height: 100%;
+  padding: 100px 0 !important;
+  padding-left: 50px !important;
+  -webkit-box-shadow: inset 0px -21px 22px -20px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px -21px 22px -20px rgba(0,0,0,0.75);
+  box-shadow: inset 0px -21px 22px -20px rgba(0,0,0,0.75);
+}
+.boton-sanmiguel{
+  background:#98c028;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+.texto-miguel p{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+.texto-miguel p strong{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+/*Check-up*/
+
+.bg-check2{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/check/check.png) no-repeat center center ;
+  background-size: cover;
+  height: 750px;
+}
+
+.parallax-check{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/check/parallax-check.png) no-repeat left center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  padding: 50px 0 !important;
+}
+
+/*PEDIATRIA*/
+
+.bg-pediatria{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/pediatria/pediatria.png) no-repeat center center;
+  /*background-attachment: fixed;*/
+  background-size: cover;
+  height: 500px;
+}
+.perfiles{
+  margin-top: -100px !important;
+}
+.titulo-pediatria{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 2.5em;
+  font-weight: 300;
+  line-height: 1.3;
+  margin-top: 250px !important;
+}
+.titulo-pediatria strong{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.titulo-pediatria span{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: .9em;
+  font-weight: 700;
+}
+.subtitulos-pediatra{
+  color: #00aca8;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.texto-pediatra{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+.texto-pediatra2{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+.texto-pediatra3{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+}
+.boton-regresar{
+  background: #a5d71a;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  padding: .7em 1.5em;
+}
+.boton-regresar img{
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 25px;
+}
+/*Bolsa de trabajo*/
+
+.bg-bolsa{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/bolsa/bg-bolsa.png) no-repeat center center ;
+  background-size: cover;
+  height: 850px;
+  padding-top: 550px !important;
+}
+.titulo-bolsa{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 2.5em;
+  font-weight: 400;
+  padding-top: 50px !important;
+}
+
+.titulo-bolsa strong{
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-weight: 600;
+}
+
+/*REGISTRO*/
+.bg-registro{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/registro/bg.png) no-repeat center center ;
+  background-size: cover;
+  height: 100%;
+  padding-top: 100px !important;
+  padding-bottom: 100px !important;
+}
+
+/*OFERTAS*/
+.titulo-ofertas{
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.8em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.perfil-ofertas{
+  background: #98c028;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: .5px;
+  height: 100vh;
+  text-transform: uppercase;
+  -webkit-box-shadow: inset 0px 5px 8px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 5px 8px -4px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 5px 8px -4px rgba(0,0,0,0.75);
+}
+.perfil-ofertas img{
+  margin: 0 10px ;
+  width: 25px;
+}
+.perfil-ofertas a{
+  color: white;
+}
+.texto-perfil{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: .8em;
+  font-weight: 600;
+  margin-top: 400px;
+}
+.texto-perfil strong{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+.texto-perfil img{
+  width: 40px;
+}
+.divider-ofertas{
+  background: #7d9e21;
+  height: 2px;
+  width: 100%;
+  margin-top: 5px;
+}
+.divider-ofertas2{
+  background: #b6d266;
+  height: 2px;
+  width: 100%;
+  margin-top: 1px;
+}
+.salir-ofertas{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+.salir-ofertas i{
+  margin: 0 5px 0 0;
+}
+.titulo-hospital{
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.3em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.nueva-oferta p{
+  background: #00aca8;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  text-transform: uppercase;
+  max-width: 50%;
+  margin-left: 10% !important;
+  padding: 10px 0 !important;
+  text-align: center;
+}
+.nueva-oferta i{
+  margin: 0 10px;
+  font-size: 30px;
+  vertical-align: middle;
+  font-weight: lighter;
+}
+.material-icons {
+  background: #98c028;
+  color: white;
+}
+.pagination li.active {
+  background-color: #00aca8;
+}
+.descripcion-ofertas{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+.descripcion-ofertas strong{
+  font-weight: 700;
+}
+.descripcion-ofertas2{
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+.descripcion-ofertas2 strong{
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.boton-ofertas{
+  border: 1px solid #00aca8;
+  color: #00aca8;
+  text-transform: uppercase;
+  text-align: center;
+  max-width: 60%;
+  margin-left: 20%;
+  padding: 5px 0;
+}
+.divider-ofertas3{
+  background: #c9c9c9;
+  height: 2px ;
+}
+.divider-ofertas4{
+  background: #e9e9e9;
+  height: 2px;
+}
+
+/*DIRECTORIO*/
+
+.logo-directorio img{
+  width:150px;
+}
+.campo-directorio {
+  padding: 30px 0 !important;
+  border-bottom: 2px solid white;
+}
+.consultorio{
+  border: 1px solid #6f6f6f;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 20%;
+  margin-top: 10px;
+  width: 60%;
+}
+.campo-directorio img{
+  margin-top: 5px;
+  -moz-transition: all 0.5s;
+ -webkit-transition: all 0.5s;
+ transition: all 0.5s;
+}
+.campo-directorio:hover img{
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+   box-shadow: 1px 1px 1px #7d9e21;
+}
+.campo-directorio p{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: .8em;
+  font-weight: 600;
+}
+.informacio-directorio{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: .9em;
+  font-weight: 600;
+}
+.informacio-directorio strong{
+  color: #00aca8;
+  font-family: 'Muli', sans-serif;
+  font-size: .8em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.boton-directorio{
+  background: #00aca8;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: .8em;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 80%;
+  margin-left: 10%;
+  padding: 10px 0;
+}
+
+/*ASEGURA*/
+.bg-asegurar{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/asegurar/bg.png) no-repeat center center ;
+  background-size: cover;
+  height: 900px;
+}
+
+/*INTRAHEALT*/
+.bg-intrahealth{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/intrahealth/bg.png) no-repeat center center ;
+  background-size: cover;
+  height: 100%;
+  padding-top:100px !important;
+  padding-bottom: 100px !important;
+}
+
+
+/*PERFIL MEDICO*/
+.bg-perfil-medico{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/perfil-medico/bg.png) no-repeat center center ;
+  background-size: cover;
+  height: 100%;
+}
+.dias ul li{
+  display: inline-block;
+}
+/*PREVENTA*/
+
+.text-registro {
+  color: #98c028;
+  font-size: 35px;
+  font-family: 'Muli', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.linea {
+  height: 2px;
+  background-color: #98c028;
+  width: 100%;
+  margin: 25px 0;
+}
+
+.text-form{
+  color: #00aca8;
+  font-size: 28px;
+  font-family: 'Muli', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.text-form p{
+  color: #000;
+  font-size: 14px;
+  font-family: 'Muli', sans-serif;
+  text-align: right;
+}
+
+/*especialistas*/
+.filtros{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/especialistas/filtros.png) no-repeat center center ;
+  background-size: cover;
+  height: 100%;
+  padding: 100px 0 !important;
+}
+
+.titulo-filtros{
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 3em;
+  font-weight: 500;
+}
+.bg-perfiles{
+  background:url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/especialistas/bg-perfil.jpg) no-repeat center center;
+  width:100%;
+}
+.informacion-especialista{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.8em;
+  font-weight: 700;
+  padding-top: 60px !important;
+}
+.informacion-especialista strong{
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.tipo-especialista{
+  color: #00aca8;
+  font-family: 'Muli', sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.bg-boton-especialistas{
+  background: rgba(249,249,249,1);
+  background: -moz-linear-gradient(-45deg, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 11%, rgba(151,192,40,1) 11%, rgba(151,192,40,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(249,249,249,1)), color-stop(11%, rgba(249,249,249,1)), color-stop(11%, rgba(151,192,40,1)), color-stop(100%, rgba(151,192,40,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 11%, rgba(151,192,40,1) 11%, rgba(151,192,40,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 11%, rgba(151,192,40,1) 11%, rgba(151,192,40,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 11%, rgba(151,192,40,1) 11%, rgba(151,192,40,1) 100%);
+  background: linear-gradient(135deg, rgba(249,249,249,1) 0%, rgba(249,249,249,1) 11%, rgba(151,192,40,1) 11%, rgba(151,192,40,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#97c028', GradientType=1 );
+}
+.boton-especialidad{
+  background: #98c028;
+  border: 1px solid white;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  max-width: 40%;
+  margin-left: 30% !important;
+  margin-bottom: 0px;
+  padding: .7em 2em !important;
+}
+.border-perfil{
+  border: 5px solid #00aca8;
+  border-radius: 50%;
+  -webkit-box-shadow: 4px 2px 25px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 2px 25px -6px rgba(0,0,0,0.75);
+  box-shadow: 4px 2px 25px -6px rgba(0,0,0,0.75);
+}
+.nav-wrapper img {
+  text-align: center;
+}
+/*******MODAL**********/
+
+/*ASEGURA*/
+.modal-asegura{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/modal/asegura.png) no-repeat center center ;
+  background-size: cover;
+  height: 100vh;
+  line-height: 2;
+}
+
+.linea-azul{
+  background:#00aca8;
+  height: 10px;
+}
+
+.linea-verde{
+  background:#98c028;
+  height: 10px;
+}
+
+.texto-modal{
+  color: #808080;
+  font-size: 1.2em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  margin-top: 30px;
+}
+
+.texto-modal strong{
+  color: #303030;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+
+.boton-modal{
+  background: #98c028;
+  color: white;
+  font-size: 1.2em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 500;
+  padding:1em 4em;
+}
+
+.margen-modal1{
+  border-right: 10px solid #98c028;
+}
+
+.margen-modal2{
+  border-right: 10px solid #00aca8;
+  margin-top: 20px;
+  padding-bottom: 40px !important;
+}
+
+/*BLOG*/
+.left-10{
+  padding-left: 10% !important;
+}
+.texto-comentarios{
+  color: #808080;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 600;
+}
+.texto-comentarios strong{
+  color: #303030;
+  font-size: 1.3em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 800;
+}
+.texto-comentarios span{
+  color: #98c028;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+.texto-comentarios b{
+  color: #303030;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 800;
+}
+.content-blog{
+  background-color:#f7f7f7;
+  border-top:3px solid #98c028;
+}
+.content-blog img{
+  width: 100%;
+}
+.publicaciones-blog{
+  padding: 10px 0 !important;
+  border-bottom: 2px solid #dcdcdc;
+}
+.social-blog img{
+  margin: 10px 5px !important;
+}
+.logo-bebe img{
+  width:400px;
+}
+.hospital-mapa img{
+  margin-bottom: -7px;
+}
+.controles{
+  color: #808080;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+.controles img{
+  vertical-align: middle;
+  margin: 0 5px !important;
+}
+.boton-control{
+  border: 1px solid #98c028;
+  color: #808080;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1em;
+  font-weight: 600;
+  max-width: 90%;
+  margin-left: 5%;
+}
+.boton-control strong{
+  color: #98c028;
+  font-weight: 800;
+}
+/*FORMULARIO MEDICO*/
+.formulario-medico{
+  background-color:rgba(255,255,255,0.9);
+  border: 5px solid #10ac99;
+  /*margin-top:10%;*/
+  padding: 50px !important;
+}
+
+.icono-label{
+  width: 25px;
+  margin-right: 10px;
+  vertical-align: bottom;
+}
+
+.titulo-login{
+  color: #303030;
+  font-size: 1.5em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 800;
+  text-transform:uppercase;
+}
+
+.logo-login img{
+  width: 120px;
+}
+.border-login1{
+  background: #98c028;
+  height: 5px;
+}
+.border-login2{
+  background: #00aca8;
+  height: 5px;
+}
+.input-login{
+  border:none !important;
+  border-bottom: 1px solid #808080 !important;
+}
+.contraseña-login{
+  color: #808080;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+.registra-aqui{
+  color: #303030;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+.registra-aqui strong{
+  color: #00aca8;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+
+/*BOLSA*/
+
+.hospital-bolsa{
+  border-bottom: 2px solid #98c028;
+  color: #303030;
+  font-size: 1.5em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+}
+.hospital-bolsa i{
+  color: #98c028;
+  font-size: 30px;
+  vertical-align: bottom;
+}
+
+.texto-bolsa{
+  color: #808080;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 600;
+}
+.texto-bolsa strong{
+  color: #303030;
+  font-size: 1.2em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 800 !important;
+}
+.texto-bolsa span{
+  color: #808080;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 800;
+}
+.texto-bolsa i{
+  color: #98c028;
+  font-size: 8px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+/*ASEGURA*/
+.titulo-asegurar{
+  color: #303030;
+  font-size: 2em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 600;
+}
+.titulo-asegurar strong{
+  color: #98c028;
+  font-size: 2em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+.border-verde{
+  border-left: 5px solid #98c028;
+}
+.content-select{
+  max-width: 60%;
+  margin-left: 20% !important;
+}
+.border-azul{
+  border-left: 5px solid #00aca8;
+}
+.boton-asegurar{
+  background: #98c028;
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.6em;
+  font-weight: 800;
+  margin-top: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px !important;
+}
+.select-llamanos{
+  border: 2px solid #c5c5c5;
+  font-family: 'Muli', sans-serif;
+  font-weight: 800;
+  margin-top: 10px !important;
+}
+.llamanos{
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+.boton-asegurar strong{
+  color: white;
+  font-weight: 700;
+}
+.formulario-aseguradora{
+  background: rgba(255, 255, 255, 0.8);
+  margin-top: 500px;
+}
+.input-asegurar{
+  background: transparent !important;
+  border: 1px solid #adadad !important;
+}
+.height-textarea{
+  height: 100px !important;
+}
+/*CHECK*/
+.content-check{
+  background: white;
+  border: 10px solid #00aca8;
+  padding: 30px !important;
+}
+.titulo-check{
+  color: #303030;
+  font-size: 2em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.titulo-check strong{
+  color: #98c028;
+  font-weight: 700;
+}
+.mano-check{
+  position:absolute;
+  left:30%;
+  margin-top: 3%;
+  z-index: 1;
+}
+.mano-check img{
+  width: 506px;
+}
+.garantia-servicio{
+  color: #303030;
+  font-size: 2em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.garantia-servicio strong{
+  color: #98c028;
+}
+.texto-blue{
+  color: #00aca8;
+  font-size: 1em;
+  font-family: 'Muli', sans-serif;
+  font-weight: 800;
+}
+.bg-doctor{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/check/doctor.jpg) no-repeat center center ;
+  background-size: cover;
+  height: 100%;
+  padding: 50px 0 !important;
+  position: relative;
+  z-index: 2;
+}
+.left-check{
+  padding-left: 5% !important;
+}
+.boton-check{
+  background: #98c028;
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-top: 50px;
+  max-width: 60%;
+  margin-left: 20% !important;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 10px 0 !important;
+}
+.boton-check strong{
+  color: white;
+}
+.boton-check a{
+  color: #303030;
+}
+.evaluacion-check{
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.evaluacion-check strong{
+  color: #bed12a;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.contactanos-check{
+  border: 1px solid #bed12a;
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  max-width: 60%;
+  margin-left: 20%;
+  padding: 10px 0 !important;
+  text-align: center;
+  text-transform: uppercase;
+}
+.top-ofertas{
+  margin-top: 400px;
+}
+
+/*MODAL*/
+a[data-toggle] {
+  cursor: pointer;
+}
+a[data-toggle]:hover {
+  /*background: #bb7fd1;*/
+  color: rgba(255, 255, 255, 0.9);
+  transition: all .3s ease,
+              color .8s ease .3s;
+}
+.modal {
+  background: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  display: none;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  max-height: 100%;
+  width: 100%;
+}
+.modal .modal-dialog {
+  left: 1%;
+  line-height: 20px;
+  margin-left: 0px;
+  position: absolute;
+  top:5vh;
+  margin-top: 0 !important;
+  transition: all .5s ease;
+  width: 98%;
+}
+.modal .modal-dialog .modal-header {
+  background: white;
+  font-size: 18px;
+  padding: 10px;
+}
+.modal .modal-dialog .modal-header h4 {
+  margin: 0;
+  padding: 0;
+}
+.modal .modal-dialog .modal-body {
+  background: white;
+  padding: 10px;
+}
+.modal .modal-dialog .modal-body p {
+  margin: 0;
+  padding: 0;
+}
+.modal.show,
+.modal.hiding {
+  display: block;
+}
+.modal.show {
+  animation: modal-fade-animation 0.5s ease;
+}
+.modal.hiding {
+  animation: modal-fade-animation-out 0.25s ease;
+}
+.modal.scale.show {
+  animation: modal-scale-animation 0.5s ease;
+}
+.modal.scale.hiding {
+  animation: modal-scale-animation-out 0.25s ease;
+  display: block;
+}
+.modal.newspaper.show .modal-dialog {
+  animation: modal-newspaper-animation 0.5s ease;
+}
+.modal.newspaper.hiding .modal-dialog {
+  animation: modal-newspaper-animation-out 0.25s ease;
+}
+.modal.slide-in-top.show .modal-dialog {
+  animation: modal-slide-top-animation 0.5s ease;
+}
+.modal.slide-in-top.hiding .modal-dialog {
+  animation: modal-slide-top-animation-out 0.25s ease;
+}
+.modal.slide-in-left.show .modal-dialog {
+  animation: modal-slide-left-animation 0.5s ease;
+}
+.modal.slide-in-left.hiding .modal-dialog {
+  animation: modal-slide-left-animation-out 0.25s ease;
+}
+.modal.slide-in-right.show .modal-dialog {
+  animation: modal-slide-right-animation 0.5s ease;
+}
+.modal.slide-in-right.hiding .modal-dialog {
+  animation: modal-slide-right-animation-out 0.25s ease;
+}
+.modal.slide-in-bottom.show .modal-dialog {
+  animation: modal-slide-bottom-animation 0.5s ease;
+}
+.modal.slide-in-bottom.hiding .modal-dialog {
+  animation: modal-slide-bottom-animation-out 0.25s ease;
+}
+.modal.expand-horiz.show .modal-dialog {
+  animation: modal-expand-horiz-animation 0.5s ease;
+}
+.modal.expand-horiz.hiding .modal-dialog {
+  animation: modal-expand-horiz-animation-out 0.25s ease;
+}
+.modal.expand-vert.show .modal-dialog {
+  animation: modal-expand-vert-animation 0.5s ease;
+}
+.modal.expand-vert.hiding .modal-dialog {
+  animation: modal-expand-vert-animation-out 0.25s ease;
+}
+.modal.sticky-top.show .modal-dialog {
+  animation: modal-sticky-top-animation 0.5s ease;
+  margin-top: 0 !important;
+  top: 0;
+}
+.modal.sticky-top.hiding .modal-dialog {
+  animation: modal-sticky-top-animation-out 0.25s ease;
+}
+.modal.sticky-bottom.show .modal-dialog {
+  animation: modal-sticky-bottom-animation 0.5s ease;
+  bottom: 0;
+  margin-bottom: 0;
+  top: auto;
+}
+.modal.sticky-bottom.hiding .modal-dialog {
+  animation: modal-sticky-bottom-animation-out 0.25s ease;
+  bottom: 0;
+  margin-bottom: 0;
+  top: auto;
+}
+.modal.rotate-top {
+  perspective: 200px;
+  perspective-origin: 50% 0;
+}
+.modal.rotate-top.show .modal-dialog {
+  animation: modal-rotate-top-animation 0.5s ease;
+}
+.modal.rotate-top.hiding .modal-dialog {
+  animation: modal-rotate-top-animation-out 0.25s ease;
+}
+.modal.rotate-bottom {
+  perspective: 200px;
+  perspective-origin: 50% 0;
+}
+.modal.rotate-bottom.show .modal-dialog {
+  animation: modal-rotate-bottom-animation 0.5s ease;
+}
+.modal.rotate-bottom.hiding .modal-dialog {
+  animation: modal-rotate-bottom-animation-out 0.25s ease;
+}
+.modal.elastic-flip {
+  perspective: 2000px;
+  perspective-origin: 50% 0;
+  transform: scale(1.1, 1.1);
+}
+.modal.elastic-flip.show .modal-dialog {
+  animation: modal-elastic-flip-animation 0.75s ease;
+}
+.modal.bounce-zoom {
+  transform: scale(1.6666667, 1.6666667);
+  top: -11%;
+}
+.modal.bounce-zoom.show .modal-dialog {
+  animation: modal-bounce-zoom-animation 0.75s ease;
+}
+body.modal-bounce-zoom {
+  transform: scale(0.6, 0.6);
+}
+
+@keyframes modal-expand-vert-animation {
+  from {
+    transform: rotateX(90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes modal-expand-vert-animation-out {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(90deg);
+  }
+}
+
+.franja-vacantes{
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+8,00aca8+8,00aca8+34,ffffff+34,ffffff+34,ffffff+37,98c028+37,98c028+90,ffffff+90 */
+  background: rgb(255,255,255); /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 4%, rgba(0,172,168,1) 4%, rgba(0,172,168,1) 30%, rgba(255,255,255,1) 30%, rgba(255,255,255,1) 30%, rgba(255,255,255,1) 32%, rgba(152,192,40,1) 32%, rgba(152,192,40,1) 90%, rgba(255,255,255,1) 90%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 4%,rgba(0,172,168,1) 4%,rgba(0,172,168,1) 30%,rgba(255,255,255,1) 30%,rgba(255,255,255,1) 30%,rgba(255,255,255,1) 32%,rgba(152,192,40,1) 32%,rgba(152,192,40,1) 90%,rgba(255,255,255,1) 90%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 4%,rgba(0,172,168,1) 4%,rgba(0,172,168,1) 30%,rgba(255,255,255,1) 30%,rgba(255,255,255,1) 30%,rgba(255,255,255,1) 32%,rgba(152,192,40,1) 32%,rgba(152,192,40,1) 90%,rgba(255,255,255,1) 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  height: 20px;
+  margin-top: 20px;
+}
+
+.titulo-vacante{
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-top: 10px !important;
+}
+
+.texto-vacante{
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 10px !important;
+}
+
+.boton-curriculum{
+  background: #98c028;
+}
+
+/*TOCOCIRUGIA*/
+.bg-tococirugia{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/tococirugia.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 800px;
+}
+.bg-pleca {
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/pleca.png) no-repeat;
+  height: 190px;
+  margin-left: -55px !important;
+  margin-top: 20px !important;
+}
+.titulo-tococirugia{
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.8em;
+  font-weight: 600;
+  margin-left: 15% !important;
+  margin-top: 60px !important;
+  text-transform: uppercase;
+}
+.line-green{
+  background: #94bc28;
+  height: 10px;
+}
+.line-blue{
+  background: #00a9a4;
+  height: 10px;
+}
+/*QUIMIOTERAPIA*/
+.bg-quimioterapia{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/quimioterapia.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 800px;
+}
+/*INHALOTERAPIA*/
+.bg-inhaloterapia{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/inhaloterapia.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 800px;
+}
+/*RESONANCIA*/
+.bg-resonancia{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/resonancia.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 1000px;
+}
+.titulo-resonancia{
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.5em;
+  font-weight: 600;
+  margin-left: 10% !important;
+  margin-top: 60px !important;
+  text-transform: uppercase;
+}
+/*HEMODIALISIS*/
+.bg-hemodialisis{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/hemodialisis.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 800px;
+}
+/*HEMODINAMIA*/
+.bg-hemodinamia{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/hemodinamia.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 900px;
+}
+/*INTENSIVA*/
+.bg-intensiva{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/intensiva.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 800px;
+}
+.titulo-intensiva{
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.5em;
+  font-weight: 600;
+  margin-left: 3% !important;
+  margin-top: 60px !important;
+  text-transform: uppercase;
+}
+/*NEONATAL*/
+.bg-neonatal{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/quirofanos.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 800px;
+}
+/*IMAGENOLOGIA*/
+.bg-imagenologia{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/imagenologia.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 800px;
+}
+/*QUIROFANOS*/
+.bg-quirofanos{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/quirofanos.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 800px;
+}
+/*URGENCIAS*/
+.bg-urgencias{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/tococirugia/urgencias.jpg) no-repeat center center;
+  -webkit-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  box-shadow: inset -49px 0px 14px -45px rgba(0,0,0,0.75);
+  background-size: cover;
+  height: 900px;
+}
+.boton-bb{
+  border: 1px solid #98c028;
+  color: #303030;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  max-width: 60%;
+  margin-left: 20% !important;
+  text-transform: uppercase;
+  padding: 5px 0 !important;
+  margin-bottom: 50px !importantn;
+}
+.boton-bb a{
+  color: #303030;
+}
+.boton-bb img{
+  vertical-align: middle;
+  width: 50px;
+  margin-right:5px;
+}
+.boton-bb2{
+  border: 1px solid #98c028;
+  color: #303030;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  max-width: 60%;
+  margin-left: 20% !important;
+  text-transform: uppercase;
+  padding: 5px 0 !important;
+}
+.boton-bb2 a{
+  color: #303030;
+}
+.boton-bb2 img{
+  vertical-align: middle;
+  width: 40px;
+  margin-right:5px;
+}
+.bg-fb{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/recursos/bg-fb.jpg) no-repeat center center;
+  background-size: cover;
+  height: 100%;
+  padding: 100px 0 !important;
+}
+/*CUNERO*/
+.bg-cunero{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/recursos/bg-cunero.jpg) no-repeat center center;
+  background-size:cover;
+  height: 100%;
+  padding: 100px 0 !important;
+}
+.boton-paquetes{
+  background: #00aca8;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1em 1.5em !important;
+}
+.bg-cunero2{
+  background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/recursos/bg-cunero2.jpg) no-repeat center center;
+  background-size:cover;
+  height: 100%;
+  padding: 100px 0 !important;
+}
+.pleca-check{
+  background: #98c028;
+  color: white;
+  font-family: 'Muli', sans-serif;
+  font-size: 1em;
+  font-weight: 700;
+  padding: 15px 10px 10px !important;
+  margin-bottom: 30px !important;
+}
+.pleca-check img{
+  cursor: pointer;
+  width: 20px;
+}
+.lupa{
+  width: 40px !important;
+}
+.logo-bolsa img{
+  width: 300px;
+}
+.usar-seguro{
+  color: #303030;
+  font-family: 'Muli', sans-serif;
+  font-size: 2.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.usar-seguro strong{
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size:1.1em;
+  font-weight: 700;
+}
+.usar-seguro2{
+  color: #808080;
+  font-family: 'Muli', sans-serif;
+  font-size:1em;
+  font-weight: ;
+}
+.usar-seguro2 strong{
+  color: #98c028;
+  font-family: 'Muli', sans-serif;
+  font-size:1.5em;
+  font-weight: 700;
+}
+.usar-seguro2 span{
+  border-top: 4px solid #00aca8;
+}
+.cerrar-modal{
+  border:1px solid #00aca8;
+  color: #00aca8;
+  font-family: 'Muli', sans-serif;
+  font-size:1.5em;
+  font-weight: 600;
+  padding: .5em 2em;
+  text-transform: uppercase;
+}
+.derecha{
+  text-align: right;
+}
+/*MEDIAS QUERYS*/
+
+@media only screen and (min-width:1400px) and (max-width:1700px){
+  .logo-mac img{
+    width: 120px;
+    margin-top: 5px;
+  }
+  .menu-mac-1 ul li {
+    padding: 1em .8em;
+    font-size: .85em;
+  }
+  .menu-mac-2 ul li {
+    padding: 1em .8em;
+    font-size: .85em;
+  }
+  .menu-mac-2 ul li i {
+    font-size: 20px;
+  }
+  .footer-menu2 span{
+    font-size: .8em;
+  }
+  .footer-menu2 ul li {
+    font-size: .7em;
+    padding: 1em 2em;
+  }
+  .footer-menu {
+    font-size: .8em;
+  }
+  .footer-menu2 strong {
+    font-size: .7em;
+  }
+  /*MENU 2*/
+  .menu-mac-3 ul li {
+    padding: .5em 2em;
+    font-size: .9em;
+  }
+  .menu-mac-4 ul li {
+    padding: .5em 2em;
+    font-size: .9em;
+  }
+  /*LOGIN MEDICO*/
+  .titulo-login{
+    font-size: 1.2em;
+  }
+  .logo-login img {
+    width: 100px;
+  }
+  .border-login1 {
+    margin-top: 20px;
+  }
+  .border-login2 {
+    margin-top: 20px;
+  }
+  .registra-aqui {
+    font-size: .8em;
+  }
+  .formulario-medico {
+    padding: 30px !important;
+  }
+  /*ASEGURAR*/
+  .titulo-asegurar strong {
+    font-size: 1.5em;
+  }
+  .boton-asegurar {
+    font-size: 1.2em;
+    padding: 10px !important;
+  }
+  /*CHECK UP*/
+  .mano-check{
+    left:20%;
+    margin-top: 8%;
+  }
+  .texto-mac2 {
+    font-size: .9em;
+  }
+  .mano-check img{
+    width: 450px;
+  }
+  /*OFERTAS*/
+  .descripcion-ofertas2 {
+    font-size: .8em;
+  }
+  .boton-ofertas {
+    font-size: .9em;
+    max-width: 80%;
+    margin-left: 10%;
+  }
+  .descripcion-ofertas {
+    font-size: .85em;
+  }
+  .titulo-hospital {
+    font-size: 1.5em;
+  }
+  .nueva-oferta p {
+    font-size: 1em;
+    max-width: 70%;
+    margin-left: 10% !important;
+  }
+  .perfil-ofertas {
+    font-size: .8em;
+  }
+  .titulo-ofertas {
+    font-size: 1.5em;
+  }
+  .perfil-ofertas img {
+    margin: 0 5px;
+    width: 20px;
+  }
+}
+
+@media only screen and (min-width:1200px) and (max-width:1400px){
+  .logo-slider img {
+    margin: 30px 0 30px;
+    margin-left: 20% !important;
+    width: 220px;
+  }
+  .logo-mac img{
+    width: 100px;
+    margin-top: 5px;
+  }
+  .menu-mac-1 ul li {
+    padding: 1em .5em;
+    font-size: .7em;
+  }
+  .menu-mac-2 ul li {
+    padding: 1em .5em;
+    font-size: .7em;
+  }
+  .menu-mac-2 ul li i {
+    font-size: 20px;
+  }
+  .menu-mac-2 ul li span::before {
+    height: 5px;
+    width: 5px;
+  }
+  select {
+    height: 2.5rem;
+  }
+  .logo-ambulancia img{
+    width:120px;
+  }
+  .footer-menu2 span{
+    font-size: .8em;
+  }
+  .footer-menu2 ul li {
+    font-size: .65em;
+    padding: 1em 1.3em;
+  }
+  .footer-menu {
+    font-size: .8em;
+  }
+  .footer-menu2 strong {
+    font-size: .8em;
+  }
+  .footer-menu i {
+    display: none;
+  }
+  .footer-menu2 {
+    font-size: .8em;
+  }
+  .input-field label {
+    font-size: .9em;
+  }
+  .boton-mac4 {
+    margin-left: 25%;
+    width: 50%;
+  }
+
+  /*MENU 2*/
+  .menu-mac-3 ul li {
+    padding: .5em 1em;
+    font-size: .75em;
+  }
+  .menu-mac-4 ul li {
+    padding: .5em 1em;
+    font-size: .75em;
+  }
+  .sub-menu strong {
+    font-size: 1em;
+  }
+  .sub-menu img{
+    width: 20px;
+  }
+  .sub-menu {
+    font-size: .75em;
+    padding-top: 10px !important;
+  }
+  .directorio {
+    font-size:
+    .87em;
+  }
+  .sociales-hospitales i {
+    font-size: 20px;
+    padding: 10px 1.2em;
+  }
+  .titulo-aguascalientes {
+    font-size: 2em;
+    padding-top: 50px !important;
+  }
+  .subtitulo-aguascalientes {
+    font-size: 1.8em;
+  }
+  .subtitulo-aguascalientes strong {
+    font-size: 1em;
+  }
+  .subtitulo-aguascalientes2 {
+    font-size: 1.8em;
+  }
+  .subtitulo-aguascalientes2 strong {
+    font-size: 1em;
+  }
+  .bienvenidos {
+    font-size: 1.5em;
+    line-height: 1.9;
+  }
+  .bienvenidos span {
+    font-size: 1em;
+  }
+  .bienvenidos strong {
+    font-size: 1em;
+  }
+  .informacion-hospital {
+    font-size: .9em;
+  }
+  .iconos-servicios strong {
+    font-size: 1.2em;
+  }
+  .iconos-servicios {
+    font-size: .9em;
+  }
+  .iconos-servicios img {
+    margin-top: 0px;
+  }
+  .doctores img{
+    width: 100%;
+  }
+  .top-100 {
+    padding-top: 50px !important;
+  }
+  .boton-1 {
+    font-size: .9em;
+    max-width: 60%;
+    margin-left: 20%;
+  }
+  .boton-2 {
+    font-size: .9em;
+    max-width: 60%;
+    margin-left: 20%;
+  }
+  .boton-select {
+    font-size: .8em;
+  }
+  .seguros {
+    font-size: 2.5em;
+  }
+  .galeria img{
+    width:100%;
+  }
+  .mama {
+    font-size: 2em;
+  }
+  .mama strong {
+    font-size: .9em;
+  }
+  .soy-bebe {
+    font-size: 1.2em;
+  }
+  .logo-bebe img {
+    width: 300px;
+  }
+  .boton-cunero img{
+    width: 50%;
+  }
+  .check-ups strong {
+    font-size: 1.5em;
+  }
+  .check-ups {
+    font-size: 1.5em;
+  }
+  .lista-footer {
+    font-size: 1em;
+  }
+  .logo-footer {
+    font-size: 1.3em;
+  }
+  .footer-sociales img{
+    margin: 0 10px ;
+  }
+  /*LOGIN MEDICO*/
+  .titulo-login{
+    font-size: 1.2em;
+  }
+  .logo-login img {
+    width: 70px;
+    margin-top: 10px;
+  }
+  .border-login1 {
+    margin-top: 20px;
+  }
+  .border-login2 {
+    margin-top: 20px;
+  }
+  .registra-aqui {
+    font-size: .7em;
+    margin-bottom: 20px;
+  }
+  .formulario-medico {
+    padding: 10px !important;
+  }
+  /*bolsa*/
+  .texto-bolsa {
+    font-size: .9em;
+  }
+  .texto-bolsa i {
+    font-size: 5px;
+  }
+  .titulo-asegurar strong {
+    font-size: 1.5em;
+  }
+  .boton-asegurar {
+    font-size: 1em;
+  }
+  .formulario-aseguradora {
+    margin-top: 300px;
+  }
+  .bg-asegurar {
+    height: 100%;
+    padding: 50px 0 !important;
+  }
+  /*CHECK UP*/
+  .mano-check{
+    left:20%;
+    margin-top: 20%;
+  }
+  .texto-mac2 {
+    font-size: .9em;
+  }
+  .mano-check img{
+    display: none;
+  }
+  .boton-check {
+    font-size: 1.2em;
+    margin-top: 50px;
+    max-width: 70%;
+    margin-left: 15% !important;
+  }
+  /*OFERTAS*/
+  .descripcion-ofertas2 {
+    font-size: .7em;
+  }
+  .boton-ofertas {
+    font-size: .8em;
+    max-width: 80%;
+    margin-left: 10%;
+  }
+  .descripcion-ofertas {
+    font-size: .75em;
+  }
+  .titulo-hospital {
+    font-size: 1em;
+    padding-top: 5px !important;
+  }
+  .nueva-oferta p {
+    font-size: .8em;
+    max-width: 90%;
+    margin-left: 10% !important;
+    padding: 5px 0 !important;
+  }
+  .perfil-ofertas {
+    font-size: .7em;
+  }
+  .titulo-ofertas {
+    font-size: 1.5em;
+  }
+  .perfil-ofertas img {
+    margin: 0 5px;
+    width: 15px;
+  }
+  .nueva-oferta i {
+    margin: 0 5px;
+    font-size: 20px;
+  }
+  .content-select {
+    max-width: 80%;
+    margin-left: 10% !important;
+  }
+  .input-field label {
+    top: 0.9rem;
+    font-size: .8rem;
+    padding-left: 5px;
+  }
+  .btn, .btn-large {
+    font-size: .8em;
+    height: 3.95em !important;
+  }
+  .boton-bb2 {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+  .boton-bb {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+  .bg-palabras{
+    background: rgba(255, 255, 255, 0.8);
+    margin-top: 100px;
+  }
+  .bg-guadalajara {
+    background-position-x: 40%;
+  }
+}
+
+@media only screen and (min-width:992px) and (max-width:1200px){
+  .bg-guadalajara {
+    background-position-x: 50%;
+  }
+  .logo-slider img {
+    margin: 30px 0 30px;
+    margin-left: 20% !important;
+    width: 150px;
+    }
+  .logo-mac img{
+    width: 100px;
+    margin-top: 5px;
+  }
+  .menu-mac-1 img {
+    width: 15px;
+    margin: 0 3px;
+  }
+  .menu-mac-1 ul li {
+    padding: 1em .5em;
+    font-size: .65em;
+  }
+  .menu-mac-2 ul li {
+    padding: 1em .5em;
+    font-size: .65em;
+  }
+  .menu-mac-2 ul li i {
+    font-size: 15px;
+    margin: 0 5px;
+  }
+  .menu-mac-2 ul li span::before {
+    height: 5px;
+    width: 5px;
+  }
+  select {
+    height: 2.5rem;
+  }
+  .logo-ambulancia img{
+    width:100px;
+  }
+  .footer-menu2 span{
+    font-size: .7em;
+  }
+  .footer-menu2 ul li {
+    font-size: .65em;
+    padding: 1em 1.3em;
+  }
+  .footer-menu {
+    font-size: .8em;
+  }
+  .footer-menu2 strong {
+    font-size: .8em;
+  }
+  .footer-menu i {
+    display: none;
+  }
+  .footer-menu2 {
+    font-size: .8em;
+  }
+  .input-field label {
+    font-size: .9em;
+  }
+  /*MENU 2*/
+  .menu-mac-3 ul li {
+    padding: .5em 1em;
+    font-size: .75em;
+  }
+  .menu-mac-4 ul li {
+    padding: .5em 1em;
+    font-size: .75em;
+  }
+  .sub-menu strong {
+    font-size: 1em;
+  }
+  .sub-menu img{
+    width: 20px;
+  }
+  .sub-menu {
+    font-size: .6em;
+    padding-top: 20px !important;
+  }
+  .directorio {
+    font-size:
+    .87em;
+  }
+  .sociales-hospitales i {
+    font-size: 20px;
+    padding: 10px 1.2em;
+  }
+  .titulo-aguascalientes {
+    font-size: 1.5em;
+    padding-top: 0px !important;
+  }
+  .logo-bernadette img {
+    width: 350px;
+  }
+  .subtitulo-aguascalientes {
+    font-size: 1.5em;
+  }
+  .subtitulo-aguascalientes strong {
+    font-size: 1em;
+  }
+  .subtitulo-aguascalientes2 {
+    font-size: 1.5em;
+  }
+  .subtitulo-aguascalientes2 strong {
+    font-size: 1em;
+  }
+  .bienvenidos {
+    font-size: 1.5em;
+  }
+  .bienvenidos span {
+    font-size: 1em;
+  }
+  .bienvenidos strong {
+    font-size: 1em;
+  }
+  .informacion-hospital {
+    font-size: .9em;
+  }
+  .iconos-servicios strong {
+    font-size: 1.2em;
+  }
+  .iconos-servicios {
+    font-size: .9em;
+  }
+  .iconos-servicios img {
+    margin-top: 0px;
+  }
+  .doctores img{
+    width: 100%;
+  }
+  .top-100 {
+    padding-top: 50px !important;
+  }
+  .boton-1 {
+    font-size: .8em;
+    max-width: 80%;
+    margin-left: 10%;
+  }
+  .boton-2 {
+    font-size: .8em;
+    max-width: 80%;
+    margin-left: 10%;
+  }
+  .boton-select {
+    font-size: .6em;
+  }
+  .seguros {
+    font-size: 2em;
+  }
+  .boton-mac2 {
+    font-size: .9em;
+    margin-left: 20%;
+    width: 80%;
+  }
+  .aseguradora {
+    font-size:.9em;
+  }
+  .aseguradora span {
+    font-size: 1em;
+  }
+  .aseguradora strong {
+    font-size: 1em;
+  }
+  .galeria img{
+    width:100%;
+  }
+  .mama {
+    font-size: 1.5em;
+  }
+  .mama strong {
+    font-size: .9em;
+  }
+  .soy-bebe {
+    font-size: 1.2em;
+  }
+  .logo-bebe img {
+    width: 300px;
+  }
+  .boton-cunero img{
+    width: 70%;
+  }
+  .check-ups strong {
+    font-size: 1.5em;
+  }
+  .check-ups {
+    font-size: 1.5em;
+  }
+  .lista-footer {
+    font-size: 1em;
+  }
+  .logo-footer {
+    font-size: 1.3em;
+  }
+  .footer-sociales img{
+    width: 30px;
+    margin: 0 5px ;
+  }
+  .oculto{
+    display: none;
+  }
+  .pocas-palabras {
+    font-size: 1em;
+  }
+  .areas {
+    font-size: .8em;
+  }
+  .top-bebe{
+    margin-top: 100px !important;
+  }
+  .bg-aguascalientes {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/aguascalientes/slider-1.png);
+    background-size: cover;
+    height: 600px;
+    background-position-x: -200px;
+  }
+  .bg-check {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/aguascalientes/check-up.jpg) no-repeat center center;
+    background-attachment: scroll !important;
+    background-position: center !important;
+    height: 400px;
+  }
+  .hospital-mapa img {
+    margin-bottom: -10px;
+    width: 400px;
+  }
+  .boton-mac {
+    width: 70%;
+    margin-left: 15%;
+  }
+  .logo-slider img {
+    margin: 20px auto 20px;
+    width: 180px;
+  }
+  .texto-slider2 p {
+    font-size: 1em;
+  }
+  .texto-slider {
+    font-size: 2em;
+  }
+  .menu-mac-1{
+    padding-top: 10px !important;
+  }
+  .info-especialidades {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  .info-especialidades strong {
+    font-size: 2em;
+  }
+  .responsive-50{
+    padding-top: 50px !important;
+  }
+  .titulo-mac {
+    font-size: 2em;
+  }
+  .texto-slider {
+    font-size: 2em;
+  }
+  .menu-mac-1{
+    padding-top: 10px !important;
+  }
+  .info-especialidades {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  .info-especialidades strong {
+    font-size: 2em;
+  }
+  .responsive-50{
+    padding-top: 50px !important;
+  }
+  .titulo-mac {
+    font-size: 2em;
+  }
+  /*LOGIN MEDICO*/
+  .titulo-login{
+    font-size: 1em;
+  }
+  .logo-login img {
+    width: 70px;
+    margin-top: 10px;
+  }
+  .border-login1 {
+    margin-top: 20px;
+  }
+  .border-login2 {
+    margin-top: 20px;
+  }
+  .registra-aqui {
+    font-size: .7em;
+    margin-bottom: 20px;
+  }
+  .formulario-medico {
+    padding: 0px !important;
+    margin-top: 0%;
+  }
+  .contraseña-login {
+    font-size: .8em;
+    margin-bottom: 20px;
+  }
+  /*bolsa*/
+  .texto-bolsa {
+    font-size: .9em;
+  }
+  .texto-bolsa i {
+    font-size: 5px;
+  }
+  /*CHECK*/
+  .mano-check img{
+    display: none;
+  }
+  .parallax-check {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/check/parallax-check.png) no-repeat center left;
+    background-attachment: scroll !important;
+    /*background-position: center !important;*/
+    background-size: cover;
+  }
+  .titulo-asegurar {
+    font-size: 1.5em;
+  }
+  .boton-check {
+    font-size: 1em;
+    margin-top: 50px;
+    max-width: 90%;
+    margin-left: 5% !important;
+  }
+  /*ASEGURAR*/
+  .boton-asegurar {
+    font-size: .9em;
+  }
+  .formulario-aseguradora {
+    margin-top: 300px;
+  }
+  .bg-asegurar {
+    height: 100%;
+    padding: 50px 0!important;
+  }
+  .titulo-asegurar strong {
+    font-size: 1.2em;
+  }
+  /*OFERTAS*/
+  .descripcion-ofertas2 {
+    font-size: .7em;
+  }
+  .boton-ofertas {
+    font-size: .8em;
+    max-width: 80%;
+    margin-left: 10%;
+  }
+  .descripcion-ofertas {
+    font-size: .75em;
+  }
+  .titulo-hospital {
+    font-size: 1em;
+    padding-top: 5px !important;
+  }
+  .nueva-oferta p {
+    font-size: .8em;
+    max-width: 90%;
+    margin-left: 10% !important;
+    padding: 5px 0 !important;
+  }
+  .perfil-ofertas {
+    font-size: .7em;
+  }
+  .titulo-ofertas {
+    font-size: 1em;
+  }
+  .perfil-ofertas img {
+    margin: 0 5px;
+    width: 15px;
+  }
+  .nueva-oferta i {
+    margin: 0 5px;
+    font-size: 20px;
+  }
+  .content-select {
+    max-width: 80%;
+    margin-left: 10% !important;
+  }
+  .input-field label {
+    top: 0.9rem;
+    font-size: .8rem;
+    padding-left: 5px;
+  }
+  .btn, .btn-large {
+    font-size: .8em;
+    height: 3.95em !important;
+  }
+  .boton-bb2 {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+  .boton-bb {
+    font-size: 1em;
+    margin-bottom: 30px;
+  }
+  .boton-mac4 {
+    margin-left: 0%;
+    width: 50%;
+  }
+  .direccion-slider {
+    font-size: 1em;
+  }
+  .hospital-slider {
+    font-size: 1em;
+  }
+  .telefono-hospital {
+    font-size: 1.2em;
+  }
+  .titulo-contacto {
+    font-size: 2em;
+  }
+  #slider-prev {
+    margin-top: -12.5% !important;
+  }
+  #slider-next {
+    margin-top: -12.5% !important;
+  }
+  .bg-palabras{
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+@media only screen and (min-width:600px) and (max-width:992px){
+  .logo-bernadette{
+    text-align: center;
+  }
+  .logo-bernadette img{
+    margin-bottom: 0px;
+  }
+  .bg-transparencia{
+    background: rgba(255,255,255,0.7);
+    padding-bottom:40px !important;
+    margin-top: 20% !important;
+  }
+  .barra-footer{
+    background: white;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    z-index: 11;
+    padding-top: 10px !important;
+  }
+  nav {
+    height: 65px;
+  }
+  .texto-slider{
+    display: none;
+  }
+  .texto-slider2{
+    display: none;
+  }
+  .logo-slider img{
+    display: none;
+  }
+  .boton-mac {
+    font-size: .8em;
+    width: 80%;
+    margin-left: 10%;
+  }
+  .texto-mac {
+    font-size: 1em;
+  }
+  .icono-modal img{
+    width: 50px;
+  }
+  .titulo-mac {
+    font-size: 2em;
+    text-align: center;
+  }
+  .line-mac {
+    border-bottom: 4px solid #98c028;
+    padding-top: 20px !important;
+  }
+  .estados ul li {
+    font-size: .8em;
+    padding: 0 .3em;
+  }
+  .texto-mac2 {
+    font-size: .9em;
+  }
+  .aseguradora span {
+    font-size: 1em;
+  }
+  .seguros {
+    font-size: 2em;
+  }
+  .titulo-especialidades {
+    font-size: 2em;
+  }
+  .top-100{
+    padding-top: 50px !important;
+  }
+  .mama {
+    font-size: 2em;
+  }
+  .mama strong {
+    font-size: .8em;
+  }
+  .soy-bebe {
+    font-size: 1.3em;
+  }
+  .responsive-50{
+    padding-top: 50px !important;
+  }
+  .boton-cunero img {
+    width: 100%;
+    margin: 1em 0;
+  }
+  .bg-confia {
+    background: white;
+    background-size: cover;
+    height: 300px;
+  }
+  .hospital-slider {
+    font-size: 1em;
+    text-align: center;
+  }
+  .direccion-slider {
+    font-size: 1em;
+    text-align: center;
+  }
+  .telefono-hospital {
+    font-size: 1em;
+    text-align: center;
+  }
+  /*MENU 2*/
+  .menu-mac-3 ul li {
+    padding: .5em 1em;
+    font-size: .75em;
+  }
+  .menu-mac-4 ul li {
+    padding: .5em 1em;
+    font-size: .75em;
+  }
+  .sub-menu strong {
+    font-size: 1em;
+  }
+  .sub-menu img{
+    width: 20px;
+  }
+  .sub-menu {
+    font-size: .6em;
+    padding-top: 20px !important;
+  }
+  .directorio {
+    font-size:
+    .87em;
+  }
+  .sociales-hospitales i {
+    font-size: 20px;
+    padding: 10px 1.2em;
+  }
+  .bg-guadalajara {
+    height: 100%;
+    padding: 0px 0 !important;
+  }
+  .titulo-aguascalientes {
+    font-size: 1.5em;
+    padding-top: 20px !important;
+  }
+  .subtitulo-aguascalientes {
+    font-size: 1.5em;
+  }
+  .subtitulo-aguascalientes strong {
+    font-size: 1em;
+  }
+  .subtitulo-aguascalientes2 {
+    font-size: 1.5em;
+  }
+  .subtitulo-aguascalientes2 strong {
+    font-size: 1em;
+  }
+  .bienvenidos {
+    font-size: 1.5em;
+  }
+  .bienvenidos span {
+    font-size: 1em;
+  }
+  .bienvenidos strong {
+    font-size: 1em;
+  }
+  .informacion-hospital {
+    font-size: .9em;
+  }
+  .iconos-servicios strong {
+    font-size: 1.2em;
+  }
+  .iconos-servicios {
+    font-size: .9em;
+  }
+  .iconos-servicios img {
+    width: 50px;
+    margin-top: 0px;
+  }
+  .doctores{
+    text-align: center;
+  }
+  .doctores img{
+    width: 50%;
+  }
+  .top-100 {
+    padding-top: 50px !important;
+  }
+  .boton-1 {
+    font-size: .8em;
+    margin: 15px 0;
+    max-width: 80%;
+    margin-left: 10%;
+  }
+  .boton-2 {
+    font-size: .8em;
+    max-width: 80%;
+    margin-left: 10%;
+  }
+  .icono-palabras {
+    margin-top: 20px;
+  }
+  .boton-select {
+    font-size: 1em;
+  }
+  .seguros {
+    font-size: 2em;
+  }
+  .boton-mac2 {
+    font-size: .9em;
+    margin-left: 20%;
+    width: 80%;
+  }
+  .aseguradora {
+    font-size:.9em;
+  }
+  .aseguradora span {
+    font-size: 1em;
+  }
+  .aseguradora strong {
+    font-size: 1em;
+  }
+  .galeria img{
+    width:100%;
+  }
+  .mama {
+    font-size: 1.5em;
+  }
+  .mama strong {
+    font-size: .9em;
+  }
+  .soy-bebe {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .logo-bebe img {
+    width: 300px;
+  }
+  .boton-cunero img{
+    width: 50%;
+  }
+  .check-ups strong {
+    font-size: 1.5em;
+  }
+  .check-ups {
+    font-size: 1.5em;
+  }
+  .lista-footer {
+    font-size: 1em;
+  }
+  .logo-footer {
+    font-size: 1.3em;
+  }
+  .footer-sociales img{
+    width: 30px;
+    margin: 0 5px ;
+  }
+  .oculto{
+    display: none;
+  }
+  .pocas-palabras {
+    font-size: 1em;
+  }
+  .areas {
+    font-size: .8em;
+  }
+  .top-bebe{
+    margin-top: 100px !important;
+  }
+  .bg-aguascalientes {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/aguascalientes/slider-1.png);
+    background-size: cover;
+    height: 600px;
+    background-position-x: 90%;
+  }
+  .top-50{
+    padding-top: 30px !important;
+  }
+  .bg-check {
+    background-attachment: scroll !important;
+    background-position: center !important;
+    background-size: cover;
+    height: 400px;
+  }
+  .margen-0{
+    margin: 0px !important;
+  }
+  .hospital-mapa img {
+    margin-bottom: -10px;
+    width: 400px;
+  }
+  /*LOGIN MEDICO*/
+  .titulo-login{
+    font-size: 1em;
+  }
+  .logo-login img {
+    width: 100px;
+    margin-top: 10px;
+  }
+  .border-login1 {
+    margin-top: 30px;
+  }
+  .border-login2 {
+    margin-top: 30px;
+  }
+  .registra-aqui {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+  .formulario-medico {
+    padding: 0px !important;
+    margin-top: 0;
+  }
+  .contraseña-login {
+    font-size: .9em;
+    margin-bottom: 20px;
+  }
+  .bg-registro {
+    height: 100%;
+    padding-top:100px !important;
+    padding-bottom: 100px !important;
+  }
+  /*BOLSA*/
+  .texto-bolsa span {
+    font-size: .8em;
+  }
+  .texto-bolsa i {
+    font-size: 5px;
+  }
+  .texto-bolsa {
+    font-size: .8em;
+  }
+  /*CHECK*/
+  .bg-check2 {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/check/check.png) no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    padding-bottom: 100px !important;
+  }
+  .boton-check {
+    font-size: 1em;
+    max-width: 80%;
+    margin-left: 10% !important;
+  }
+  .mano-check img {
+    display: none;
+  }
+  .parallax-check {
+    background-attachment: scroll !important;
+    background-size: cover;
+  }
+  .bg-doctor {
+    background-position-x: -100px;
+  }
+  /*ASEGURAR*/
+  .bg-asegurar {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/check/asegurar.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    padding-bottom: 50px !important;
+  }
+  .formulario-aseguradora {
+    margin-top: 0px;
+  }
+  .titulo-asegurar {
+    text-align: center;
+  }
+  .titulo-asegurar strong {
+    font-size: 1em;
+  }
+  .boton-asegurar {
+    font-size: 1em;
+    margin-top: 50px;
+    padding: 10px !important;
+  }
+  .top-ofertas{
+    margin-top: 50px;
+  }
+  .perfil-ofertas a {
+    text-align: center;
+  }
+  .titulo-hospital {
+    text-align: center;
+    margin-bottom: 20px !important;
+  }
+  .nueva-oferta p {
+    font-size: 1em;
+    max-width: 50%;
+    margin-left: 25% !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+  .descripcion-ofertas {
+    margin-bottom: 20px !important;
+  }
+  .boton-ofertas {
+    max-width: 50%;
+    margin-left: 25%;
+  }
+  .border-shadow {
+    display: none;
+  }
+  .fondo-asegurar{
+    background: rgba(255,255,255,0.8);
+    padding-top: 20px !important;
+  }
+  .bg-cunero {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/bebe/mama.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    padding: 100px 0 !important;
+  }
+  .flores img{
+    width: 100%;
+  }
+  .bg-palabras{
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .boton-bb {
+    font-size: 1.2em;
+    max-width: 80%;
+    margin-left: 10% !important;
+    margin-bottom: 20px;
+  }
+  .boton-bb2 {
+    font-size: 1.2em;
+    max-width: 80%;
+    margin-left: 10% !important;
+  }
+  .material-placeholder {
+    margin-bottom: 20px;
+  }
+  .derecha {
+    text-align: center;
+  }
+  .center-certificado{
+    text-align: center;
+  }
+  .bg-irapuato {
+     padding: 0px 0 !important;
+  }
+}
+
+@media only screen and (min-width:600px) and (max-width:768px){
+  .texto-mac {
+    font-size: .7em;
+  }
+  .icono-modal img{
+    width: 40px;
+  }
+  .border-shadow {
+    display: none;
+  }
+  .bg-palabras{
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+@media only screen and (min-width:200px) and (max-width:600px){
+  /*HOME*/
+  .logo-slider img{
+    display: none;
+  }
+  nav {
+    height: 0px;
+  }
+  .texto-slider{
+    display: none;
+  }
+  .texto-slider2{
+    display: none;
+  }
+  /*HOME*/
+  .icono-modal{
+    text-align:center !important;
+  }
+  .texto-mac {
+    text-align: center;
+  }
+  .padre-80{
+    padding: 0 10px;
+  }
+  .hospital-mapa img{
+    width: 200px;
+  }
+  .estados ul li {
+    display: block;
+    text-align: center;
+    padding: .5em .8em;
+    border: 2px solid #00aca8;
+    margin: 10px 0;
+    width: 80%;
+    margin-left: 10%;
+    font-size: .9em;
+  }
+  .line-mac {
+    border-bottom: 4px solid #98c028;
+    padding-top: 30px !important;
+  }
+  .boton-mac2 {
+    margin-left: 25%;
+    width: 50%;
+  }
+  .aseguradora {
+    margin-top: 30px !important;
+  }
+  .pleca-slider {
+    font-size: 1.5em;
+    margin-top: 50%;
+  }
+  .titulo-mac {
+    font-size: 2em;
+    text-align: center;
+  }
+  .top-100 {
+    padding-top: 50px !important;
+  }
+  .boton-mac {
+    width: 60%;
+    margin-left: 20%;
+  }
+  .mama {
+    font-size: 2em;
+  }
+  .mama strong {
+    font-size: .75em;
+  }
+  .seguros {
+    font-size: 2em;
+    text-align: center;
+  }
+  .logo-bebe img{
+    width:100%;
+  }
+  .boton-cunero img{
+    width: 100%;
+    margin: 1em 0;
+  }
+  .ocultar{
+    display: none;
+  }
+  .responsive-50{
+    padding-top: 50px !important;
+  }
+
+  .bg-check {
+    background-attachment: scroll !important;
+		background-position: center !important;
+    background-size: cover;
+    height: 430px;
+  }
+  .check-ups strong {
+    font-size: 1em;
+  }
+  .confia {
+    font-size: 2em;
+    text-align: center;
+  }
+  .confia strong {
+    font-size: 1em;
+  }
+  .texto-mac2 {
+    font-size: 1em;
+  }
+  .bg-confia {
+    height: 550px;
+  }
+  .boton-mac4 {
+    margin-left: 10%;
+    width: 80%;
+  }
+  .soy-bebe {
+    font-size: 1.5em;
+  }
+  .titulo-especialidades {
+    font-size: 2em;
+  }
+  .info-especialidades strong {
+    font-size: 2em;
+  }
+  .info-especialidades {
+    font-size: 1em;
+    line-height: 1.8;
+  }
+  .barra-footer{
+    background: white;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left:0;
+    z-index: 110;
+  }
+  .menu-footer{
+    text-align: center;
+  }
+  .footer-menu2 ul li {
+    display: block;
+  }
+  .barra-footer img{
+    padding-top: 10px;
+  }
+  .top-iconos{
+    padding-top:0;
+  }
+  .titulo-contacto {
+    font-size: 2em;
+    text-align: center;
+  }
+  .center-responsive{
+    text-align: center;
+  }
+  .center-responsive img{
+    width: 50px;
+    margin-top: 20px !important;
+  }
+  .boton-modal {
+    font-size: .85em;
+    padding: 1em;
+  }
+  .bg-confia {
+    background: white;
+    background-size: cover;
+    height: 100%;
+  }
+  .hospital-slider {
+    font-size: 1em;
+    text-align: center;
+  }
+  .direccion-slider {
+    font-size: 1em;
+    text-align: center;
+  }
+  .telefono-hospital {
+    font-size: 1em;
+    text-align: center;
+  }
+  .top-50 {
+    padding-top: 30px !important;
+  }
+  .mapa2 {
+    height: 500px;
+  }
+  .titulo-aguascalientes {
+    font-size: 1.5em;
+    margin-bottom: 20px !important;
+    text-align: center;
+    padding-top: 10px !important;
+  }
+  .subtitulo-aguascalientes2 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .texto-modal {
+    font-size: 1em;
+  }
+
+  /*AGUASCALIENTES*/
+  .bg-aguascalientes {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/aguascalientes/slider-1.png) center center no-repeat;
+    background-size: cover;
+    height: 350px;
+    background-position-x: 90%;
+    margin-top: 5px !important;
+    padding-top: 160px !important;
+  }
+  .iconos-servicios {
+    text-align: center;
+  }
+  .iconos-servicios img {
+    margin-top: 20px;
+    width: 50px;
+  }
+  .iconos-servicios p{
+    text-align: justify;
+  }
+  .center-responsive{
+    text-align: center !important;
+  }
+  .hospital-aguascalientes img{
+    width: 200px;
+  }
+  .icono-palabras img{
+    width: 50px;
+  }
+  .icono-palabras {
+    margin-top: 20px;
+  }
+  .pocas-palabras {
+    font-size: 1em;
+    text-align: center;
+  }
+  .margen-0{
+    margin: 0px !important;
+  }
+  .padre-20{
+    padding-top: 20px !important;
+  }
+  .areas ul li {
+    padding: 5px 0;
+  }
+  .boton-1 {
+    font-size: .8em;
+    max-width: 80%;
+    margin: 30px 0;
+    margin-left: 10%;
+  }
+  .boton-2 {
+    font-size: .8em;
+    max-width: 80%;
+    margin: 30px 0;
+    margin-left: 10%;
+  }
+  .material-placeholder img{
+    width: 100%;
+    margin: 10px 0;
+  }
+  .slider-aguascalientes {
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 50%, rgba(152,192,40,1) 50%, rgba(152,192,40,1) 50%);
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 50%,rgba(152,192,40,1) 50%,rgba(152,192,40,1) 50%);
+    background: linear-gradient(to right, rgba(255,255,255,1) 50%,rgba(152,192,40,1) 50%,rgba(152,192,40,1) 50%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#98c028',GradientType=1 );
+    padding-top: 50px !important;
+  }
+  .slider-blog {
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 1);
+  }
+  .footer-sociales img{
+    width: 30px;
+    margin: 0 5px;
+  }
+  .responsive-20{
+    margin-top: 20px;
+  }
+  /*CELAYA*/
+
+  .bg-celaya{
+    height: 450px;
+    background-position-x: 70%;
+    padding-top: 250px !important;
+  }
+  /*GUADALAJARA*/
+  .bg-guadalajara{
+    height: 450px;
+    padding-top: 210px !important;
+  }
+  .bienvenidos strong {
+    font-size: 1em;
+  }
+  .bienvenidos span {
+    font-size: 1em;
+  }
+  .bienvenidos {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .bienvenidos strong {
+    padding-bottom: 0px;
+  }
+
+  /*IRAPUATO*/
+  .bg-irapuato{
+    height: 400px;
+    background-position-x: 20%;
+    padding-top: 200px !important;
+  }
+  .left-10 {
+    padding-left: 5% !important;
+  }
+  .select-galeria{
+    border: 2px solid #00aca8;
+    color: #97c028;
+    font-family: 'Muli', sans-serif;
+    font-size: 1em;
+    font-weight: 600;
+  }
+  .boton-mac3 {
+    font-size: .6em;
+  }
+
+  /*LOGIN */
+  .formulario-medico {
+    padding: 20px !important;
+    margin-top: 0%;
+  }
+  .logo-login{
+    text-align: center;
+  }
+  .titulo-login {
+    text-align: center;
+  }
+  .registra-aqui {
+    font-size: .8em;
+    margin-bottom: 20px;
+  }
+  .bg-registro {
+    height:100%;
+    padding-top:50px !important;
+    padding-bottom: 50px !important;
+  }
+  /*BOLSA*/
+  .texto-bolsa {
+    text-align: center;
+  }
+  /*CHECK*/
+  .titulo-asegurar {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .titulo-asegurar strong {
+    font-size: 1.5em;
+  }
+  .bg-check2 {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/check/check.png) no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    padding-bottom: 50px !important;
+  }
+  .bg-transparencia{
+    background: rgba(255,255,255,0.7);
+    padding-bottom:30px !important;
+    margin-top: 20px !important;
+  }
+  .boton-check {
+    font-size: 1em;
+    max-width: 80%;
+    margin-left: 10% !important;
+  }
+  .mano-check img {
+    display: none;
+  }
+  .parallax-check {
+    background-attachment: scroll !important;
+    background-size: cover;
+  }
+  .bg-doctor {
+    background-position-x: -100px;
+  }
+  .titulo-check {
+    color: #303030;
+    font-size: 1.5em;
+  }
+  /*ASEGURADORA*/
+  .bg-asegurar {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/check/asegurar.jpg) no-repeat center center;
+    height: 100%;
+    padding-bottom: 50px !important;
+  }
+  .formulario-aseguradora {
+    margin-top: 0px;
+  }
+  .boton-asegurar {
+    font-size: 1em;
+    margin-top: 30px;
+    padding: 10px !important;
+  }
+  .abajo-check{
+    margin-bottom: 30px !important;
+  }
+  .content-check {
+    border: 10px solid #00aca8;
+    padding: 15px !important;
+  }
+  /*OFERTAS*/
+  .top-ofertas{
+    margin-top: 50px;
+  }
+  .pagination li a {
+    font-size: .7rem;
+    padding: 0 4px;
+  }
+  .pagination li i {
+    font-size: 1rem;
+    margin-top: 5px !important;
+  }
+  .nueva-oferta p {
+    font-size: 1em;
+    max-width: 90%;
+    margin-left: 5% !important;
+    margin-top: 30px !important;
+    margin-bottom: 20px !important;
+  }
+  .titulo-hospital {
+    font-size: 1em;
+    margin-bottom: 20px !important;
+    text-align: center;
+  }
+  .descripcion-ofertas {
+    margin-top: 20px;
+  }
+  .texto-bolsa i{
+    display: none;
+  }
+  .titulo-vacante{
+    text-align: center;
+  }
+  .franja-vacantes{
+    display: none;
+  }
+  .boton-curriculum {
+    background: #98c028;
+    margin: 20px 0;
+  }
+  /*THUMBS*/
+  .titulo-cardiologia{
+    font-size: 1.3em;
+    padding: 20px 0 !important;
+  }
+  .swiper-button-prev, .swiper-button-next {
+    width: 30px;
+    height: 30px;
+    margin-top: -17px;
+    -moz-background-size: 30px 30px;
+    -webkit-background-size: 30px 30px;
+    background-size: 30px 30px;
+  }
+  .border-shadow {
+    display: none;
+  }
+  #slider-next{
+    margin-top: -35% !important;
+  }
+  #slider-prev{
+    margin-top: -35% !important;
+  }
+  .content-seguros {
+    padding: 20px 0 40px !important;
+    border-top: 1px solid #dedede !important;
+    border-bottom: 1px solid #dedede !important;
+    border-left: 0!important;
+    margin-right: 0px !important;
+  }
+  .bg-fb{
+    padding: 30px 0 !important;
+  }
+  /*ESPECIALISTAS*/
+  .informacion-especialista {
+    font-size: 1.5em;
+    padding-top: 0px !important;
+    text-align: center;
+  }
+  .informacion-especialista strong {
+    text-align: center;
+  }
+  .bg-perfiles{
+    background: rgba(255,255,255,1);
+    background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 24%, rgba(249,249,249,1) 24%, rgba(249,249,249,1) 79%, rgba(151,192,40,1) 79%, rgba(151,192,40,1) 100%);
+    /*background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(24%, rgba(255,255,255,1)), color-stop(24%, rgba(249,249,249,1)), color-stop(79%, rgba(249,249,249,1)), color-stop(79%, rgba(151,192,40,1)), color-stop(100%, rgba(151,192,40,1)));*/
+    background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 24%, rgba(249,249,249,1) 24%, rgba(249,249,249,1) 79%, rgba(151,192,40,1) 79%, rgba(151,192,40,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 24%, rgba(249,249,249,1) 24%, rgba(249,249,249,1) 79%, rgba(151,192,40,1) 79%, rgba(151,192,40,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 24%, rgba(249,249,249,1) 24%, rgba(249,249,249,1) 79%, rgba(151,192,40,1) 79%, rgba(151,192,40,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 24%, rgba(249,249,249,1) 24%, rgba(249,249,249,1) 79%, rgba(151,192,40,1) 79%, rgba(151,192,40,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#97c028', GradientType=0 );
+    padding: 30px 0 !important;
+  }
+  .boton-especialidad {
+    max-width: 60%;
+    margin-left: 20% !important;
+  }
+  .tipo-especialista {
+    font-size: 1.5em;
+  }
+  .titulo-pediatria {
+    font-size: 2em;
+    margin-top: 150px !important;
+    text-align: center;
+  }
+  .bottom-gine{
+    margin-bottom: 0;
+  }
+  /*SAN MIGUEL*/
+  .bg-san-miguel{
+    padding: 50px 0 !important;
+    padding-left: 0px !important;
+    text-align: center;
+  }
+  .bg-cunero {
+    padding: 50px 0 !important;
+  }
+  .boton-bb {
+    font-size: 1.2em;
+    max-width: 100%;
+    margin-left: 0% !important;
+    margin-bottom: 20px !important;
+  }
+  .boton-bb2 {
+    font-size: 1.2em;
+    max-width: 100%;
+    margin-left: 0% !important;
+    margin-bottom: 20px !important;
+  }
+  .marco-palabras {
+    height: 100%;
+    padding: 20px 0 !important;
+  }
+  .boton-select2 {
+    width: 50%;
+  }
+  .pleca-direccion img{
+    width: 40px;
+  }
+  .pleca-direccion {
+    margin-top: 50px !important;
+  }
+  .bg-bolsa {
+    height: 450px;
+    padding-top:0px !important;
+  }
+  .modal-asegura {
+    height: 100%;
+    padding-bottom: 50px !important;
+  }
+  .fondo-asegurar{
+    background: rgba(255,255,255,0.8)
+  }
+  .flores img{
+    width: 100%;
+  }
+  .llamanos {
+    font-size: 1.5em;
+    margin-top: 30px !important;
+  }
+  .bg-cunero {
+    background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/bebe/mama.jpg) no-repeat center center;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    padding: 100px 0 !important;
+  }
+  .bg-palabras{
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Estilos de Index.php*/
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+    background: #98c028;
+    border: none;
+  }
+  .bx-wrapper .bx-pager.bx-default-pager a {
+    background: #cfe1a1;
+    opacity: 0.8;
+    -moz-border-radius: 0%;
+    -webkit-border-radius: 0%;
+    border-radius: 0%;
+    margin: 0 15px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  @media only screen and (min-width:200px) and (max-width:768px){
+    .bx-wrapper .bx-prev {
+      left: 0px;
+      background: none;
+    }
+    .bx-wrapper .bx-next {
+      right:40px !important;
+      background: url(http://localhost/hospitalesmac/wp-content/themes/hospitalesmac/images/recursos/flecha.svg) no-repeat;
+      width: 40px !important;
+      -moz-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+    .bx-wrapper .bx-controls-direction a {
+    top: 40%;
+    }
+    .bx-wrapper .bx-viewport {
+      border-top: 0px;
+    }
+  }
